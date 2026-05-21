@@ -1,0 +1,339 @@
+.seating-chart-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: calc(100vh - 80px);
+}
+
+.chart-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.chart-header h1 {
+  font-size: 36px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.chart-header p {
+  font-size: 16px;
+  color: #666;
+}
+
+.chart-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Hall Selector */
+.hall-selector {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hall-selector h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.hall-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hall-btn {
+  background: #f0f0f0;
+  border: 2px solid #e0e0e0;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.hall-btn:hover {
+  border-color: #667eea;
+  background: #f9f9ff;
+}
+
+.hall-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+.capacity {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Hall Statistics */
+.hall-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.stat-icon {
+  font-size: 40px;
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 5px;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid #e0e0e0;
+}
+
+.legend-box.occupied {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+}
+
+.legend-box.empty {
+  background: #f0f0f0;
+  border-color: #e0e0e0;
+}
+
+/* Seating Grid */
+.seating-grid-container {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.seating-grid-container h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.seating-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.seat {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  background: #f0f0f0;
+  font-weight: 600;
+  font-size: 12px;
+  color: #666;
+}
+
+.seat.occupied {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+.seat.empty:hover {
+  border-color: #667eea;
+  background: #e8eeff;
+}
+
+.seat.occupied:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.seat-number {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.seat-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2c3e50;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.seat.occupied:hover .seat-tooltip {
+  opacity: 1;
+}
+
+/* Students List */
+.students-list {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.students-list h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.table-container {
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.students-table thead {
+  background: #f5f5f5;
+}
+
+.students-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.students-table td {
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+}
+
+.students-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.seat-td {
+  font-weight: bold;
+  color: #667eea;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .seating-grid {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 8px;
+    padding: 15px;
+  }
+
+  .seat {
+    width: 40px;
+    height: 40px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-header h1 {
+    font-size: 28px;
+  }
+
+  .hall-buttons {
+    flex-direction: column;
+  }
+
+  .hall-btn {
+    width: 100%;
+  }
+
+  .hall-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .seating-grid {
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    gap: 6px;
+  }
+
+  .seat {
+    width: 35px;
+    height: 35px;
+    font-size: 9px;
+  }
+
+  .students-table th,
+  .students-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
